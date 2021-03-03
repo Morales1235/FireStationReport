@@ -71,12 +71,6 @@ namespace WpfApp4
         }
         private void timeTextBoxLostFocus(object sender, RoutedEventArgs args)
         {
-            //if(memberListView.Items.Count > 0)
-            //{
-            //    var ff = firefighters.FirefighterList[firefighters.FirefighterList.Count - 1];
-            //    if (ff.isFilled())
-            //        addRowButton_Click(sender, args);
-            //}
         }
         private void numberTextBoxLostFocus(object sender, RoutedEventArgs args)
         {

@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using WpfApp4.Model;
 
+//PDF generator is not ready yet: it doesn't produce usable document.
+
 namespace WpfApp4.PDF
 {
     public class SalaryReport

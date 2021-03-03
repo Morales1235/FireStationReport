@@ -48,7 +48,6 @@ namespace WpfApp4.Model
             }
             set
             {
-                //dispatchTime = DateTime.ParseExact(value, Glob.Global.datetimeTimeonlyFormat, null);
                 DateTime.TryParseExact(value, Glob.Global.datetimeTimeonlyFormat, null, System.Globalization.DateTimeStyles.None, out dispatchTime);
                 OnPropertyChanged("DispatchTime");
             }
@@ -61,7 +60,6 @@ namespace WpfApp4.Model
             }
             set
             {
-                //returnTime = DateTime.ParseExact(value, Glob.Global.datetimeTimeonlyFormat, null);
                 DateTime.TryParseExact(value, Glob.Global.datetimeTimeonlyFormat, null, System.Globalization.DateTimeStyles.None, out returnTime);
                 OnPropertyChanged("ReturnTime");
             }
