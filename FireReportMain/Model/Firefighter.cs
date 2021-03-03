@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp4.Model
+namespace FireReportMain.Model
 {
     public class Firefighter : INotifyPropertyChanged
     {

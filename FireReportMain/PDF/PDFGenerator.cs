@@ -8,11 +8,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfApp4.Model;
+using FireReportMain.Model;
 
 //PDF generator is not ready yet: it doesn't produce usable document.
 
-namespace WpfApp4.PDF
+namespace FireReportMain.PDF
 {
     public class SalaryReport
     {

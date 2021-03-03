@@ -1,12 +1,12 @@
-﻿<Window x:Class="WpfApp4.MainWindow"
+﻿<Window x:Class="FireReportMain.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:extensions1="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:global="clr-namespace:Glob;assembly=Glob"
-        xmlns:local="clr-namespace:WpfApp4"
-        xmlns:model="clr-namespace:WpfApp4.Model"
+        xmlns:local="clr-namespace:FireReportMain"
+        xmlns:model="clr-namespace:FireReportMain.Model"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="900">
     <Grid>

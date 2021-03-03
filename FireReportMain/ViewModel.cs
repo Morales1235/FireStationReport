@@ -5,9 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfApp4.Model;
+using FireReportMain.Model;
 
-namespace WpfApp4
+namespace FireReportMain
 {
     public class FirefightersViewModel
     {
@@ -24,6 +24,9 @@ namespace WpfApp4
 
         public FirefightersViewModel()
         {
+            //var ff = new Firefighter();
+            //ff.Name = "Roman testowy";
+            //firefighters.Add(ff);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

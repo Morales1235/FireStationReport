@@ -16,10 +16,10 @@ using Glob;
 using Xceed.Wpf.Toolkit;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using WpfApp4.PDF;
+using FireReportMain.PDF;
 using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
-namespace WpfApp4
+namespace FireReportMain
 {
     public partial class MainWindow : Window
     {
