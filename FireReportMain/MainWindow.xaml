@@ -1,0 +1,76 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:extensions1="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:global="clr-namespace:Glob;assembly=Glob"
+        xmlns:local="clr-namespace:WpfApp4"
+        xmlns:model="clr-namespace:WpfApp4.Model"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <DataTemplate x:Key="nameBoxColTemplate">
+                    <DockPanel>
+                        <TextBox Text="{Binding Path=Name}" Loaded="FocusTextBoxOnLoad" Width="200"/>
+                    </DockPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="carBoxColTemplate">
+                    <DockPanel>
+                        <TextBox Text="{Binding Path=Car}" Width="90"/>
+                    </DockPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="dispatchTimeBoxColTemplate">
+                    <DockPanel>
+                        <extensions1:MaskedTextBox Mask='{Binding Source={x:Static global:Global.DATETIME_TIMEONLY_MASK}}'
+                                                   Text="{Binding DispatchTime, Mode=TwoWay}" GotFocus="timeTextBoxGotFocus"/>
+                    </DockPanel>
+                </DataTemplate>
+                <DataTemplate x:Key="returnTimeBoxColTemplate">
+                    <DockPanel>
+                        <extensions1:MaskedTextBox Mask='{Binding Source={x:Static global:Global.DATETIME_TIMEONLY_MASK}}'
+                                                   Text="{Binding ReturnTime}" GotFocus="timeTextBoxGotFocus"
+                                                   LostFocus="timeTextBoxLostFocus" />
+                    </DockPanel>
+                </DataTemplate>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <DockPanel>
+            <Button x:Name="addRowButton" Content="Dodaj" HorizontalAlignment="Left" Margin="05,25,05,5" DockPanel.Dock="Left" VerticalAlignment="Top" Width="50" Click="addRowButton_Click"/>
+            <Button x:Name="removeMemberButton" Content="Usun" HorizontalAlignment="Left" Margin="05,25,05,5" DockPanel.Dock="Left" VerticalAlignment="Top" Width="50" Click="removeMemberButton_Click"/>
+            <Button x:Name="generateReportButton" Content="Generuj" HorizontalAlignment="Left" Margin="05,25,05,05" DockPanel.Dock="Left" VerticalAlignment="Top" Width="70" Click="generateReportButton_Click"/>
+            <Label HorizontalAlignment="Left" Margin="05,25,05,05" DockPanel.Dock="Left" VerticalAlignment="Top">Inna data:</Label>
+            <CheckBox x:Name="todayDateCheckBox" HorizontalAlignment="Left" Margin="05,25,05,05" DockPanel.Dock="Left" VerticalAlignment="Top" Checked="todayDateCheckBox_Checked"/>
+            <extensions1:MaskedTextBox x:Name="dateTextBox" Mask='{Binding Source={x:Static global:Global.DATETIME_DATEONLY_MASK}}' HorizontalAlignment="Left" Margin="5, 25, 5, 5" VerticalAlignment="Top" Width="100" IsEnabled="False"/>
+            <Label HorizontalAlignment="Left" Margin="05,25,05,05" DockPanel.Dock="Left" VerticalAlignment="Top">Nr zdarzenia:</Label>
+            <extensions1:MaskedTextBox x:Name="numberTextBox" Mask="{Binding Source={x:Static global:Global.NUMBER_MASK}}" HorizontalAlignment="Left" Margin="5, 25, 5, 5" VerticalAlignment="Top" Width="25" 
+                                       GotFocus="numberTextBoxGotFocus" LostFocus="numberTextBoxLostFocus"/>
+        </DockPanel>
+        <DockPanel>
+            <ListView x:Name="memberListView" Margin="5,75,5,5" FontSize="16" ItemsSource="{Binding FirefighterList, Mode=TwoWay}" 
+                      HorizontalAlignment="Left" Width="600" DockPanel.Dock="Left" KeyboardNavigation.TabNavigation="Local">
+                <ListView.Resources>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseDoubleClick" Handler="memberListView_SelectionChanged"/>
+                    </Style>
+                </ListView.Resources>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Nazwisko" CellTemplate="{StaticResource nameBoxColTemplate}"
+                                    Width="220">
+                        </GridViewColumn>
+                        <GridViewColumn Header="Samochod" CellTemplate="{StaticResource carBoxColTemplate}"
+                                    Width="100">
+                        </GridViewColumn>
+                        <GridViewColumn Header="Czas wyjazdu" CellTemplate="{StaticResource dispatchTimeBoxColTemplate}"/>
+                        <GridViewColumn Header="Czas Powrotu" CellTemplate="{StaticResource returnTimeBoxColTemplate}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox x:Name="descriptionTextBox" Text="Opis zdarzenia" DockPanel.Dock="Left" Margin="5,75,5,5"
+                     TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"/>
+        </DockPanel>
+    </Grid>
+</Window>
